@@ -7,7 +7,7 @@ import { AppBar, Toolbar, Badge, Hidden, IconButton } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import NotificationsIcon from "@material-ui/icons/NotificationsOutlined";
 import InputIcon from "@material-ui/icons/Input";
-// import { useAuth0 } from '@auth0/auth0-react';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,7 +27,7 @@ const Topbar = (props) => {
   const classes = useStyles();
 
   const [notifications] = useState([]);
-  // const { logout } = useAuth0();
+  const { logout } = useAuth0();
 
   return (
     <AppBar {...rest} className={clsx(classes.root, className)}>
@@ -52,9 +52,11 @@ const Topbar = (props) => {
           <IconButton
             className={classes.signOutButton}
             color="inherit"
-            // onClick={() =>
-            //   logout({ returnTo: "http://localhost:3000/sign-in" })
-            // }
+            onClick={() =>
+              logout({
+                returnTo: "https://sukritiwildnet.github.io/react-deploy/#/",
+              })
+            }
           >
             <InputIcon />
           </IconButton>

@@ -13,6 +13,7 @@ import {
 } from "@material-ui/core";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { useAuth0 } from "@auth0/auth0-react";
+import imgbackground from "./images/auth.jpg";
 
 import { Facebook as FacebookIcon, Google as GoogleIcon } from "../icons";
 
@@ -51,7 +52,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundImage: "url(/images/auth.jpg)",
+    // backgroundImage: "url(/images/auth.jpg)",
+    backgroundImage: `url(${imgbackground})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
@@ -80,8 +82,9 @@ const useStyles = makeStyles((theme) => ({
   contentHeader: {
     display: "flex",
     alignItems: "center",
-    paddingTop: theme.spacing(5),
-    paddingBototm: theme.spacing(2),
+    marginTop: "60px",
+    paddingTop: theme.spacing(7),
+    paddingBottom: theme.spacing(1),
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(2),
   },
@@ -186,24 +189,15 @@ const SignIn = (props) => {
         <Grid className={classes.quoteContainer} item lg={5}>
           <div className={classes.quote}>
             {/* <div className={classes.quoteInner}>
-              <Typography
-                className={classes.quoteText}
-                variant="h1"
-              >
+              <Typography className={classes.quoteText} variant="h1">
                 Hella narwhal Cosby sweater McSweeney's, salvia kitsch before
                 they sold out High Life.
               </Typography>
               <div className={classes.person}>
-                <Typography
-                  className={classes.name}
-                  variant="body1"
-                >
+                <Typography className={classes.name} variant="body1">
                   Takamaru Ayako
                 </Typography>
-                <Typography
-                  className={classes.bio}
-                  variant="body2"
-                >
+                <Typography className={classes.bio} variant="body2">
                   Manager at inVision
                 </Typography>
               </div>
@@ -239,16 +233,13 @@ const SignIn = (props) => {
                   </Grid>
                   <Grid item>
                     <Button
-                      onClick={handleSignIn}
+                      onClick={() => loginWithRedirect()}
                       size="large"
                       variant="contained"
                     >
                       <GoogleIcon className={classes.socialIcon} />
                       Login with Google
                     </Button>
-                    <button onClick={() => loginWithRedirect()}>
-                      testing button
-                    </button>
                   </Grid>
                 </Grid>
                 <Typography
@@ -299,10 +290,7 @@ const SignIn = (props) => {
                   Sign in now
                 </Button>
                 <Typography color="textSecondary" variant="body1">
-                  Don't have an account?{" "}
-                  <Link component={RouterLink} to="/sign-up" variant="h6">
-                    Sign up
-                  </Link>
+                  Don't have an account? <Link variant="h6">Sign up</Link>
                 </Typography>
               </form>
             </div>
