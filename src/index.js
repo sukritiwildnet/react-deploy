@@ -1,14 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+import { Auth0Provider } from "@auth0/auth0-react";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Auth0Provider
+      domain="dev--51c0mci.us.auth0.com"
+      clientId="FxvHp6bnYPI8G2yzlMh5BtWQpa64bh2w"
+      redirectUri="https://sukritiwildnet.github.io/react-deploy/#/dashboard"
+    >
+      <App />
+    </Auth0Provider>
+    ,
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
